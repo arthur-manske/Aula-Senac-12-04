@@ -1,0 +1,30 @@
+#!/usr/bin/node
+
+const rl = require('readline-sync');
+
+let magicNumber = Math.round(Math.random() * 99);
+
+function askNumber()
+{
+	let choosenNumber = 'NaN';
+	while (isNaN(choosenNumber)) 
+		choosenNumber = Number(rl.question(`Choose your magic number [0-100] `));
+	
+	return choosenNumber;
+}
+
+let choosenNumber = -1;
+let tries = 0;
+
+while (choosenNumber !== magicNumber)
+{
+	choosenNumber = askNumber();
+	if (choosenNumber > magicNumber) {
+		console.log(`Less.`);
+	} else if (choosenNumber < magicNumber) {
+		console.log(`More.`);
+	}
+	++tries;
+}
+
+console.log(`Your correct, the magic number ${magicNumber}. You used ${tries}.`);

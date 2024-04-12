@@ -1,0 +1,14 @@
+#!/usr/bin/node
+
+const rl = require('readline-sync'); 
+
+let headsOrTails = ["heads", "tails"];
+let magicIndex = Math.round(Math.random());
+
+response = rl.question(`Choose heads or tails: `).toLowerCase();
+
+if (response == headsOrTails[magicIndex]) {
+	console.log(`You bet right :)`);
+} else {
+	console.log(`Your wrong :(`);
+}

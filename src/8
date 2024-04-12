@@ -1,0 +1,35 @@
+#!/usr/bin/node
+
+const rl = require('readline-sync'); 
+
+let i;
+let array = [];
+
+function lesserArrayMember(array)
+{
+	let lesser = array[0];
+	for (let i = 1; i < array.length; ++i) {
+		if (lesser > array[i]) lesser = array[i];
+	}
+
+	return lesser;
+}
+
+function greaterArrayMember(array)
+{
+	let greater = array[0];
+	for (let i = 1; i < array.length; ++i) {
+		if (greater < array[i]) greater = array[i];
+	}
+
+	return greater;
+}
+
+
+for (i = 0; i < 10; ++i) {
+	while (isNaN(array[i])) 
+		array[i] = Number(rl.question("Type a number: "));
+}
+
+console.log("The bigger element is: ", greaterArrayMember(array));
+console.log("The lesser element is: ", lesserArrayMember(array));

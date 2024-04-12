@@ -1,0 +1,19 @@
+#!/usr/bin/node
+
+const rl = require(`readline-sync`);
+
+function factorial(number)
+{
+	let result = number;
+	for (let i = (number - 1); i; --i) 
+		result *= i;
+
+	return result;
+}
+
+let number = 'a';
+
+while (isNaN(number)) 
+	number = Number(rl.question(`Type a number: `));
+
+console.log(factorial(number));
